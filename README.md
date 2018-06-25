@@ -5,7 +5,9 @@ Instalação
 - Usar sistema operativo Ubuntu (possivelmente através do VirtualBox)
 - Utilizando a linha de comandos, faça os passos seguintes:
     - Instalar linguagem python3
-    - Faça download do código
+    - Instalar git para fazer clone do código
+    - Faça clone do codigo
+    - Entre dentro da pasta do repositorio ("cd luperoup_app")
     - Construa um ambiente virtual (Usado para gerir dependencias necessárias) com o comando "python3 -m venv venv"
     - Active o ambiente com o comando "source venv/bin/activate"
     - Instale as dependencias com o comando "pip install -r requirements.txt"

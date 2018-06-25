@@ -4,8 +4,13 @@ from app.forms import LoginForm, RegistrationForm
 from app.models import User
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
+
 from app.resources.calhas import Calhas
 from app.resources.vidros import Vidros
+from app.resources.melaminas import Melaminas
+from app.resources.perfils import Perfis
+from app.resources.rodizios import Rodizios
+
 
 
 # Define url para fazer registo na aplicacao. valida form e adiciona user.
@@ -67,11 +72,44 @@ def logout():
 # Define urls para a pagina inicial. Login e necessario. Definido pelo decorator login_required do flask-login.
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
     return render_template('index.html', title='Home')
+
+@app.route('/inventario')
+@login_required
+def inventario():
+    return render_template('inventario.html', title='Inventário')
+
+@app.route('/rodizios')
+@login_required
+def inventario_rodizios():
+    return render_template('rodizios.html', title='Inventário')
+
+@app.route('/calhas')
+@login_required
+def inventario_calhas():
+    return render_template('calhas.html', title='Inventário')
+
+@app.route('/melaminas')
+@login_required
+def inventario_melaminas():
+    return render_template('melaminas.html', title='Inventário')
+
+@app.route('/vidros')
+@login_required
+def inventario_vidros():
+    return render_template('vidros.html', title='Inventário')
+
+@app.route('/perfis')
+@login_required
+def inventario_perfis():
+    return render_template('perfis.html', title='Inventário')
 
 
 api.add_resource(Calhas, '/api/calhas')
 api.add_resource(Vidros, '/api/vidros')
+api.add_resource(Perfis, '/api/perfis')
+api.add_resource(Melaminas, '/api/melaminas')
+api.add_resource(Rodizios, '/api/rodizios')
+
 
